@@ -34,19 +34,43 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 13
 
+
+// QMK uses teensy pin names
+// on the promicro the names are different. see qmk_firmware/docs/reference/teensy2promicro_pinout.png
+
+# define PROMICRO 0
+#if PROMICRO
+#define RXI D2
+#define TXO D3
+#define PM2 D1
+#define PM3 D0
+#define PM4 D4
+#define PM5 C6
+#define PM6 D7
+#define PM7 E6
+#define PM8 B4
+#define PM9 B5
+#define PM10 B6
+#define PM16 B2
+#define PM14 B3
+#define PM15 B1
+#define A0 F7
+#define A1 F6
+#define A2 F5
+#define A3 F4
+#endif
+
 // wiring of each half
 #define MATRIX_ROW_PINS    \
     {                      \
         D2, D3, D1, D0, D4 \
     }
-// #define MATRIX_COL_PINS                                    
-//     {                                                      
-//         F4, F5, F6, F7, B1, B3, B2, B6, B5, B4, E6, D7, C6 
-//     }
+
 #define MATRIX_COL_PINS                                    \
     {                                                      \
         C6, D7, E6, B4, B5, B6, B2, B3, B1, F7, F6, F5, F4\
     }
+
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 
